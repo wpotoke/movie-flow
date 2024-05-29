@@ -1,0 +1,61 @@
+body {
+    background-color: #000000; /* Черный цвет заднего фона */
+    color: #fff; /* Белый текст */
+    font-family: Arial, sans-serif;
+}
+
+.black-link {
+    color: #000000;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Увеличение размера сетки */
+    gap: 20px;
+    justify-content: center;
+}
+
+.grid-item {
+    text-align: center;
+    background-color: #5b437d; /* Фиолетовый фон */
+    padding: 30px; /* Увеличение внутренних отступов */
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Плавное изменение размера при наведении */
+}
+
+.grid-item img {
+    width: 200px; /* Ширина изображения */
+    height: 200px; /* Высота изображения */
+    object-fit: cover; /* Масштабирование изображения, чтобы оно полностью заполняло свое контейнерное пространство */
+    border-radius: 50%; /* Для закругленных краев */
+    transition: transform 0.3s ease;
+}
+
+/* При наведении курсора на элемент */
+.grid-item:hover {
+    transform: scale(1.03); /* Увеличение в 1.1 раза */
+}
+
+.grid-item:hover img {
+    transform: scale(1.03); /* Увеличение изображения в 1.5 раза */
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-start; /* выравнивание кнопок */
+    margin-bottom: 20px;
+}
+
+.navigation button {
+    background-color: #7d59ab;
+    color: #050505;
+    border: none;
+    padding: 15px 25px;
+    margin: 0 10px; /* отступ между кнопками */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navigation button:hover {
+    background-color: #4c2c69; /* изменение цвета при наведении курсора */
+}

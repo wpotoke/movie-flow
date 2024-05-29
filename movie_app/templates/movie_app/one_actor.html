@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/actor.css" %}">
+    <title>Actor Profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="actor-info">
+            <img src="{{ actor.image.url }}" alt="Actor Photo">
+            <div>
+                <h2>{{ actor }}</h2>
+                <p>Age: {{actor.age}}</p>
+                <p>Country: {{actor.country}}</p>
+                <p>Biography: {{actor.description}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

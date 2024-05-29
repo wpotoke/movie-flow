@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Черный цвет заднего фона */
+    color: #f7c4f6; /* Белый цвет текста */
+}
+
+.container {
+    max-width: 1000px;
+    height: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #4b0082; /* Увеличенный фиолетовый цвет фона */
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.actor-info {
+    display: flex;
+    align-items: center;
+}
+
+.actor-info img {
+    width: 250px; /* Одинаковая ширина изображения */
+    height: 350px; /* Одинаковая высота изображения */
+    border-radius: 10px; /* Скругление углов изображения */
+    margin-right: 20px;
+    object-fit: cover; /* Заполнение контейнера */
+}
+
+.actor-info h2 {
+    margin: 0;
+}
+
+.actor-info p {
+    margin: 10px 0;
+}

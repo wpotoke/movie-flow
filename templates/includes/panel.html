@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class="header">
+    <h1><a href="{% url 'index' %}" class="header-link">Movie Flow</a></h1>
+    <nav>
+        <a href="{% url "movies" %}">Films</a>
+        <a href="#">Serials</a>
+    </nav>
+    <form action="{% url "movies" %}" method="get" class="search-form">
+        <div class="search-container">
+            <input type="text" name="search" class="search-input" placeholder="Search movie..." required>
+            <button type="submit" class="search-icon-button">
+                <img src="{% static 'images/png/search_icon.png' %}" alt="Search" class="search-icon">
+            </button>
+        </div>
+    </form>
+    <div class="profile-icon">
+        <img src="{% static 'images/profile_icon.jpeg' %}" alt="Profile">
+    </div>
+</div>
