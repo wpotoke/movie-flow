@@ -1,15 +1,17 @@
 .footer {
-    background-color: #101010;
+    background-color: #3b2f3d;
     color: #ccc;
-    padding: 40px 0;
+    padding: 40px 40px; /* Добавим отступы сверху/снизу и слева/справа */
 }
 
 .footer-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding-left: 20px; /* Добавим отступ слева */
+
 }
 
 .footer-logo {

@@ -1,0 +1,53 @@
+/* Стили для рейтингов на карточке фильмов */
+.movie-card-rating-container {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.movie-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.movie-card-rating.kinopoisk {
+    background-color: #00a300;
+}
+
+.movie-card-rating.imdb {
+    background-color: #f5c518;
+    color: #000;
+}
+
+.movie-card-rating .source {
+    font-weight: bold;
+}
+
+/* Стили для категорий фильма, времени просмотра и возрастного ограничения */
+.movie-card-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.movie-card-detail {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.movie-card-detail i {
+    font-size: 1rem;
+}
+
+.movie-card-detail span {
+    font-size: 0.8rem;
+}

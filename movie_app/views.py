@@ -18,13 +18,17 @@ def index(request):
     return render(request, 'movie_app/index.html', context=context)
 
 def show_all_movie(request):
-    movies = Movie.objects.order_by(F("rating").desc(nulls_last=True), F("name").asc(nulls_last=True), "-budget")
-    agg = movies.aggregate(Count("name"))
 
     query = request.GET.get('search', None)
 
     if query:
         movies = q_search(query)
+    else:
+        movies = Movie.objects.order_by(F("rating").desc(nulls_last=True), F("name").asc(nulls_last=True), "-budget")
+    
+    agg = movies.aggregate(Count("name"))
+
+
 
     context = {
         "movies": movies,

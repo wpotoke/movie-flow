@@ -1,8 +1,17 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #0a060b;
+    background-color: #564459;
     color: #fff;
+}
+
+.header {
+    padding: 40px;
+}
+
+.count-movie {
+    background-color: #fafafa00;
+    padding: 0px 65px;
 }
 
 .slide-content {
@@ -25,8 +34,7 @@ body {
     margin: 20px auto; /* Центрируем слайдер по горизонтали */
     background-size: cover; /* Убедимся, что фон заполняет контейнер */
     background-position: center; /* Центрируем фон */
-    border: 1px solid #d633ff; /* Фиолетовая граница */
-    border-radius: 20px; /* Закругленные углы */
+    border-radius: 10px; /* Закругленные углы */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Тень для глубины */
 }
 
@@ -46,19 +54,11 @@ body {
     align-items: flex-start; /* Выравниваем элементы в начале (вверху) */
     justify-content: flex-start; /* Выравниваем элементы в начале (слева) */
     position: relative;
-    padding: 20px; /* Добавляем отступы, чтобы текст не был на краю */
+    border:1px solid rgb(143, 33, 162);
     border-radius: 20px; /* Закругленные углы */
     box-sizing: border-box; /* Убедимся, что padding и border включены в общую ширину и высоту элемента */
 }
 
-.slide-content {
-    background: rgba(0, 0, 0, 0.329);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-    color: rgba(255, 255, 255, 0.936);
-    max-width: 50%;
-}
 
 .slide-content h2 {
     margin: 0;
@@ -119,7 +119,7 @@ body {
 }
 
 .content {
-    padding: 20px;
+    padding: 60px;
 }
 
 .movie-grid {
@@ -129,10 +129,12 @@ body {
 }
 
 .movie-card {
+    position: relative;
     background-color: #222022;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s;
+    width: 90%;
 }
 
 .movie-card:hover {
@@ -146,11 +148,31 @@ body {
 }
 
 .movie-info {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
     padding: 10px;
+    display: none;
+    color: #fff;
+}
+
+.movie-info-slider {
+    padding: 10px;
+
+}
+
+.movie-info-slider h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.movie-card:hover .movie-info {
+    display: block;
 }
 
 .movie-info h3 {
-    margin: 10px 0;
+    margin: 0;
     font-size: 1.2rem;
 }
 
