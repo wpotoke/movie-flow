@@ -1,7 +1,7 @@
 from typing import Any
 from django.contrib import admin
 from django.db.models.query import QuerySet
-from movie_app.models import Movie, Director, Actor
+from movie_app.models import Movie, Director, Actor, Serial
 
 
 
@@ -70,3 +70,13 @@ class MovieAdmin(admin.ModelAdmin):
     def set_rub(self, request, queryset):
         count_updated = queryset.update(currency=Movie.RUB)
         self.message_user(request, f"Обновленно {count_updated} записей")
+
+@admin.register(Serial)
+class SerialAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+    list_display = ["name", "rating", "currency", "budget", "category_serial"]
+    filter_horizontal = ['actor']
+    list_editable = ["budget", "rating"] 
+    ordering = ["-rating", "name"]
+    search_fields = ["name"]
+    actions = ["set_usd", "set_rub"]

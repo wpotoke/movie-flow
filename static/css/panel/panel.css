@@ -1,6 +1,6 @@
 
 .header {
-    background-color: #3d303f;
+    background-color: #231a24;
     padding: 10px 40px;
     display: flex;
     align-items: center;
@@ -79,13 +79,14 @@
 .profile-icon {
     display: flex;
     align-items: center;
-    margin-left: 35px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .profile-icon img {
     width: 70px;
     height: 70px;
     background-color: #bf00ff;
-    border-radius: 40%;
+    border-radius: 45%;
     cursor: pointer;
 }

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load split_filter %}
+
+{% block title %}
+<title>All Movies {{movies|length}}</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/card_movie.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/panel/panel.css' %}">
+<link rel="stylesheet" href="{% static 'css/results.css' %}">
+{% endblock  %}
+
+{% block content %}
+{% include "includes/panel.html" %}
+<div class="content">
+    {% if results %}
+        <div class="search-results">
+            <h1>Результаты по запросу</h1>
+        </div>
+    {% else %}
+        <div class="search-error">
+            <h1>Что-то пошло не так!</h1>
+            <p>По вашему запросу ничего не найдено.</p>
+        </div>
+    {% endif %}
+
+    <div class="movie-grid">
+        {% for result in results %}
+            <div class="movie-card">
+                {% if result.type == 'movie' %}
+                    <a href="{% url 'index:movie-detail' result.object.slug %}">
+                        {% if result.object.image %}
+                            <img src="{{result.object.image.url}}" alt="{{result.object.name}}">
+                        {% else %}
+                            <img src="{% static 'images/not_image.jpeg' %}" alt="...">
+                        {% endif %}
+                        <div class="movie-info">
+                                <h3>{{result.object.name}}</h3>
+                                <div class="movie-card-rating-container">
+                                    <div class="movie-card-rating kinopoisk">
+                                        <span class="source">Кинопоиск</span> {{ result.object.rating }}
+                                    </div>
+                                    <div class="movie-card-rating imdb">
+                                        <span class="source">IMDb</span> {{ result.object.rating_imdb }}
+                                    </div>
+                                </div>
+                                <div class="movie-card-details-container">
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-clock"></i>
+                                        <span>{{ result.object.time|split:"."|first }}ч {{ result.object.time|split:"."|last }}м</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>{{ result.object.year }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-film"></i>
+                                        <span>{{ result.object.category_film }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>{{ result.object.age }}+</span>
+                                    </div>
+                                </div>
+                        </div>
+                    </a>
+                {% elif result.type == 'serial' %}
+                    <a href="{% url 'index:serial-detail' result.object.slug %}">
+                        {% if result.object.image %}
+                            <img src="{{result.object.image.url}}" alt="{{movie.name}}">
+                        {% else %}
+                            <img src="{% static 'images/not_image.jpeg' %}" alt="...">
+                        {% endif %}
+                        <div class="movie-info">
+                                <h3>{{result.object.name}}</h3>
+                                <div class="movie-card-rating-container">
+                                    <div class="movie-card-rating kinopoisk">
+                                        <span class="source">Кинопоиск</span> {{ result.object.rating }}
+                                    </div>
+                                    <div class="movie-card-rating imdb">
+                                        <span class="source">IMDb</span> {{ result.object.rating_imdb }}
+                                    </div>
+                                </div>
+                                <div class="movie-card-details-container">
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-clock"></i>
+                                        <span>{{ result.object.time|split:"."|first }}ч {{ result.object.time|split:"."|last }}м</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>{{ result.object.year }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-film"></i>
+                                        <span>{{ result.object.category_film }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>{{ result.object.age }}+</span>
+                                    </div>
+                                </div>
+                        </div>
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% include "includes/footer.html" %}
+{% endblock %}

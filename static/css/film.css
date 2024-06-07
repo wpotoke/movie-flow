@@ -6,7 +6,6 @@ body {
     color: #fff;
 }
 
-
 /* Основное содержимое */
 .movie-view-container {
     position: relative;
@@ -134,4 +133,47 @@ body {
 
 .watch-button:hover, .add-to-favorites-button:hover {
     background-color: rgba(255, 255, 255, 0.4); /* Изменим цвет при наведении */
+}
+
+.video-container {
+    max-width: 1200px; /* Увеличим максимальную ширину видео */
+    margin: 40px auto; /* Центрируем видео и добавляем отступ сверху и снизу */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.video-container h1 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Стили для переключателя качества видео */
+.quality-selector {
+    margin-top: 20px; /* Добавим отступ сверху */
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem; /* Увеличим размер шрифта */
+    color: #fff;
+}
+
+.quality-selector label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.quality-selector select {
+    padding: 10px;
+    font-size: 1.2rem; /* Увеличим размер шрифта */
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
 }

@@ -25,6 +25,7 @@ admin.site.index_title = 'Админ панель Django'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('movie_app.urls')),
+    path('', include('movie_app.urls', namespace="index")),
+    path('', include('video_player.urls', namespace="video_player")),
     path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

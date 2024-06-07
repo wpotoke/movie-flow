@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ film.name }} - Movie Flow</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/film.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/panel/panel.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+{% include "includes/panel.html" %}
+<div class="video-container">
+    <video id="movie-video" width="100%" controls>
+        <source src="{{ film.video_medium.url }}" type="video/mp4" label="Medium">
+        <source src="{{ film.video_high.url }}" type="video/mp4" label="High">
+        <source src="{{ film.video_hd.url }}" type="video/mp4" label="HD">
+        Your browser does not support the video tag.
+    </video>
+    <div class="quality-selector">
+        <label for="quality">Quality:</label>
+        <select id="quality" name="quality">
+            {% if film.video_medium %}
+                <option value="{{ film.video_medium.url }}">Medium</option>
+            {% endif %}
+            {% if film.video_high %}
+                <option value="{{ film.video_high.url }}">High</option>
+            {% endif %}
+            {% if film.video_hd %}
+                <option value="{{ film.video_hd.url }}">HD</option>
+            {% endif %}
+        </select>
+    </div>
+</div>
+{% include "includes/footer.html" %}
+<script src="{% static 'js/video_quantity/video_quantity.js' %}"></script>
+{% endblock %}

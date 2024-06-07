@@ -3,7 +3,7 @@
 {% load split_filter %}
 
 {% block title %}
-<title>Movies</title>
+<title>Serials</title>
 {% endblock %}
 
 {% block css %}
@@ -18,45 +18,45 @@
 {% include "includes/panel.html" %}
 
 <div class="count-movie">
-    <h1>Фильмы {{movies|length}}</h1>
+    <h1>Сериалы {{serials|length}}</h1>
 </div>
 
 <div class="content">
     <div class="movie-grid">
-        {% for movie in movies %}
-        <a href="{% url 'index:movie-detail' movie.slug %}">
+        {% for serial in serials %}
+        <a href="{% url "index:serial-detail" serial.slug %}">
             <div class="movie-card">
-                    {% if movie.image %}
-                        <img src="{{movie.image.url}}" alt="{{movie.name}}">
+                    {% if serial.image %}
+                        <img src="{{serial.image.url}}" alt="{{serial.name}}">
                     {% else %}
                         <img src="{% static 'images/not_image.jpeg' %}" alt="...">
                     {% endif %}
                 <div class="movie-info">
-                    <h3>{{movie.name}}</h3>
+                    <h3>{{serial.name}}</h3>
                     <div class="movie-card-rating-container">
                         <div class="movie-card-rating kinopoisk">
-                            <span class="source">Кинопоиск</span> {{ movie.rating }}
+                            <span class="source">Кинопоиск</span> {{ serial.rating }}
                         </div>
                         <div class="movie-card-rating imdb">
-                            <span class="source">IMDb</span> {{ movie.rating_imdb }}
+                            <span class="source">IMDb</span> {{ serial.rating_imdb }}
                         </div>
                     </div>
                     <div class="movie-card-details-container">
                         <div class="movie-card-detail">
                             <i class="fas fa-clock"></i>
-                            <span>{{ movie.time|split:"."|first }}ч {{ movie.time|split:"."|last }}м</span>
+                            <span>{{ serial.time|split:"."|first }}ч {{ serial.time|split:"."|last }}м</span>
                         </div>
                         <div class="movie-card-detail">
                             <i class="fas fa-calendar-alt"></i>
-                            <span>{{ movie.year }}</span>
+                            <span>{{ serial.year }}</span>
                         </div>
                         <div class="movie-card-detail">
                             <i class="fas fa-film"></i>
-                            <span>{{ movie.category_film }}</span>
+                            <span>{{ serial.category_serial }}</span>
                         </div>
                         <div class="movie-card-detail">
                             <i class="fas fa-exclamation-circle"></i>
-                            <span>{{ movie.age }}+</span>
+                            <span>{{ serial.age }}+</span>
                         </div>
                     </div>
                 </div>

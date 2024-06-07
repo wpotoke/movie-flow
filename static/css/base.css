@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #564459;
+    background-color: #2b212d;
     color: #fff;
 }
 
@@ -22,20 +22,20 @@ body {
     color: rgba(255, 255, 255, 0.936);
     max-width: 50%;
     position: absolute;
-    bottom: 20px; /* Расположим текст сверху */
-    left: 20px; /* Расположим текст слева */
+    bottom: 20px;
+    left: 20px;
 }
 
 .banner-slider {
     position: relative;
-    width: 92%; /* Уменьшаем ширину до 80% */
-    height: 500px; /* Установим желаемую высоту */
+    width: 92%;
+    height: 500px;
     overflow: hidden;
-    margin: 20px auto; /* Центрируем слайдер по горизонтали */
-    background-size: cover; /* Убедимся, что фон заполняет контейнер */
-    background-position: center; /* Центрируем фон */
-    border-radius: 10px; /* Закругленные углы */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Тень для глубины */
+    margin: 20px auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .slides {
@@ -51,14 +51,13 @@ body {
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: flex-start; /* Выравниваем элементы в начале (вверху) */
-    justify-content: flex-start; /* Выравниваем элементы в начале (слева) */
+    align-items: flex-start;
+    justify-content: flex-start;
     position: relative;
-    border:1px solid rgb(143, 33, 162);
-    border-radius: 20px; /* Закругленные углы */
-    box-sizing: border-box; /* Убедимся, что padding и border включены в общую ширину и высоту элемента */
+    border: 1px solid rgb(143, 33, 162);
+    border-radius: 20px;
+    box-sizing: border-box;
 }
-
 
 .slide-content h2 {
     margin: 0;
@@ -67,6 +66,7 @@ body {
 
 .slide-content p {
     margin: 10px 0;
+    padding: 10px;
     font-size: 1.2rem;
 }
 
@@ -125,7 +125,7 @@ body {
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 20px;
+    gap: 30px;
 }
 
 .movie-card {
@@ -135,6 +135,7 @@ body {
     overflow: hidden;
     transition: transform 0.3s;
     width: 90%;
+    cursor: pointer;
 }
 
 .movie-card:hover {
@@ -143,36 +144,43 @@ body {
 
 .movie-card img {
     width: 100%;
-    height: 300px; /* Устанавливаем одинаковую высоту для всех изображений */
-    object-fit: cover; /* Масштабируем и обрезаем изображение по размеру */
+    height: 300px;
+    object-fit: cover;
 }
 
 .movie-info {
     position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
     padding: 10px;
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Выровняем контент по центру */
+    align-items: flex-start; /* Выровняем контент по центру */
     color: #fff;
-}
-
-.movie-info-slider {
-    padding: 10px;
-
-}
-
-.movie-info-slider h3 {
-    margin: 10px 0;
-    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-sizing: border-box;
 }
 
 .movie-card:hover .movie-info {
-    display: block;
+    opacity: 1;
 }
 
 .movie-info h3 {
     margin: 0;
+    font-size: 1.2rem;
+}
+
+.movie-info-slider {
+    padding: 10px;
+}
+
+.movie-info-slider h3 {
+    margin: 10px 0;
     font-size: 1.2rem;
 }
 
@@ -212,13 +220,54 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
-    color: #ccc;
+    color: #ffffffe6;
 }
 
 .movie-detail i {
-    font-size: 1rem; /* Adjust icon size */
+    font-size: 1rem;
 }
 
 .movie-detail span {
-    font-size: 0.9rem; /* Adjust text size */
+    font-size: 0.9rem;
+}
+
+/* Стили для успешного поиска */
+.search-results h1 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-results li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.search-results li a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.search-results li a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для ошибки */
+.search-error h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.search-error p {
+    font-size: 1.3rem;
+    color: #ffffff;
 }

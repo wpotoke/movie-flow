@@ -3,7 +3,7 @@
 {% load split_filter %}
 
 {% block title %}
-<title>{{ movie.name }} - Movie Flow</title>
+<title>{{ serial.name }} - Movie Flow</title>
 {% endblock %}
 
 {% block css %}
@@ -15,38 +15,38 @@
 
 {% block content %}
 {% include "includes/panel.html" %}
-<div class="movie-view-container" style="background-image: url('{{ movie.image_back.url }}');">
+<div class="movie-view-container" style="background-image: url('{{ serial.image_back.url }}');">
     <div class="slide-content">
-        <h2>{{ movie.name }}</h2>
-        <p>{{ movie.description }}</p>
+        <h2>{{ serial.name }}</h2>
+        <p>{{ serial.description }}</p>
         <div class="movie-info">
             <div class="rating-container">
                 <div class="rating kinopoisk">
-                    <span class="source">Кинопоиск</span> {{ movie.rating }}
+                    <span class="source">Кинопоиск</span> {{ serial.rating }}
                 </div>
                 <div class="rating imdb">
-                    <span class="source">IMDb</span> {{ movie.rating_imdb }}
+                    <span class="source">IMDb</span> {{ serial.rating_imdb }}
                 </div>
             </div>
             <div class="movie-details-container">
                 <div class="movie-detail">
                     <i class="fas fa-clock"></i>
-                    <span>{{ movie.time|split:"."|first }}ч {{ movie.time|split:"."|last }}м</span>
+                    <span>{{ serial.time|split:"."|first }}ч {{ serial.time|split:"."|last }}м</span>
                 </div>
                 <div class="movie-detail">
                     <i class="fas fa-calendar-alt"></i>
-                    <span>{{ movie.year }}</span>
+                    <span>{{ serial.year }}</span>
                 </div>
                 <div class="movie-detail">
                     <i class="fas fa-film"></i>
-                    <span>{{ movie.category_film }}</span>
+                    <span>{{ serial.category_serial }}</span>
                 </div>
                 <div class="movie-detail">
                     <i class="fas fa-exclamation-circle"></i>
-                    <span>{{ movie.age }}+</span>
+                    <span>{{ serial.age }}+</span>
                 </div>
                 <div class="movie-actions">
-                    <a href="{% url 'video_player:film-player' movie.slug %}" class="watch-button">Смотреть фильм</a>
+                    <a href="#" class="watch-button">Смотреть сериал</a>
                     <a href="#" class="add-to-favorites-button">Добавить в избранное</a>
                 </div>
             </div>

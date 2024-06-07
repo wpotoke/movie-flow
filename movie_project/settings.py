@@ -39,11 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django.contrib.postgres',
-    
     'django_extensions',
     'debug_toolbar',
 
     'movie_app',
+    'video_player',
 ]
 
 MIDDLEWARE = [

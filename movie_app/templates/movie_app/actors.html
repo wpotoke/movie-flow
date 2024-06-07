@@ -20,7 +20,7 @@
     {% for actor in actors %}
         <div class="grid-item">
             <img src="{{ actor.image.url }}" alt="{{actor.first_name}}">
-            <p><a href="{% url "actor_film" actor.slug %}" class="black-link">{{actor}}</a></p>
+            <p><a href="{% url "index:actor_film" actor.slug %}" class="black-link">{{actor}}</a></p>
         </div>
     {% endfor %}
 </div>

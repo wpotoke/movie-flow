@@ -87,8 +87,9 @@ class Movie(models.Model):
     time = models.FloatField(blank=True, null=True, verbose_name="Время просмотра")
     image = models.ImageField(upload_to="movies", blank=True, null=True, verbose_name="Изображение")
     image_back = models.ImageField(upload_to="movies_back", blank=True, null=True, verbose_name="Фон")
-    video = models.FileField(upload_to="videos", blank=True, null=True, verbose_name="Видео")
-    
+    video_medium = models.FileField(upload_to='videos/480', blank=True, null=True, verbose_name="Видео 480")
+    video_high = models.FileField(upload_to='videos/720', blank=True, null=True, verbose_name="Видео 720")
+    video_hd = models.FileField(upload_to='videos/1080', blank=True, null=True, verbose_name="Видео 1080")
 
     class Meta:
         db_table = "movie"
@@ -96,4 +97,58 @@ class Movie(models.Model):
         verbose_name_plural = "Фильмы"
 
     def __str__(self):
-        return f"{self.name} - {self.rating}%"
+        return f"{self.name} - {self.rating}"
+
+
+class Serial(models.Model):
+
+
+    NEWRELEASES = "NEWRELEASES"
+    POPULAR = "POPULAR"
+    CLASSICS = "CLASSICS"
+    COMMON = "COMMON"
+
+    CATEGORY_CHOICES = [
+        (NEWRELEASES, "new_releases"),
+        (POPULAR, "popular"),
+        (CLASSICS, "classics"),
+        (COMMON, "common"),
+    ]
+
+    EURO = "EUR"
+    RUB = "RUB"
+    POUND = "PND"
+    USD = "USD"
+
+    CURRENCY_CHOICES = [
+        (EURO, "Euro"),
+        (RUB, "Ruble"),
+        (POUND, "Pound"),
+        (USD, "Dollar"),
+    ]
+
+    name = models.CharField(max_length=40, verbose_name="Название")
+    rating = models.FloatField(null=True, blank=True, verbose_name="Рейтинг")
+    rating_imdb = models.FloatField(null=True, blank=True, verbose_name="Рейтинг IMDb")
+    year = models.IntegerField(null=True, blank=True, verbose_name="Год")
+    budget = models.IntegerField(default=100000, verbose_name="Бюджет")
+    description = models.TextField(max_length=500, null=True, blank=True, verbose_name="Описание")
+    slug = models.SlugField(default="", max_length=200, unique=True, null=False, verbose_name="URL")
+    currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default=USD)
+    director = models.ForeignKey(Director, on_delete=models.PROTECT, blank=True, null=True, related_name="serial", verbose_name="Режисер")
+    actor = models.ManyToManyField(Actor, related_name="serial", verbose_name="Актер")
+    category_serial = models.CharField(max_length=100, blank=True, null=True, verbose_name="Категория сериала")
+    age = models.PositiveIntegerField(blank=True, null=True, verbose_name="Возврастное ограничение")
+    time = models.FloatField(blank=True, null=True, verbose_name="Время просмотра")
+    image = models.ImageField(upload_to="serials", blank=True, null=True, verbose_name="Изображение")
+    image_back = models.ImageField(upload_to="serial_back", blank=True, null=True, verbose_name="Фон")
+    video = models.FileField(upload_to="videos", blank=True, null=True, verbose_name="Видео")
+    
+
+    class Meta:
+        db_table = "serial"
+        verbose_name = "Сериал"
+        verbose_name_plural = "Сериалы"
+
+    def __str__(self):
+        return f"{self.name} - {self.rating}"
