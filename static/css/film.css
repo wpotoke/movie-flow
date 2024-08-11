@@ -1,0 +1,179 @@
+/* Общее стили */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0a060b;
+    color: #fff;
+}
+
+/* Основное содержимое */
+.movie-view-container {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    height: 100vh; /* Высота контейнера равна высоте экрана */
+    box-sizing: border-box; /* Убедимся, что padding включен в общую ширину */
+    overflow: hidden; /* Отключим прокрутку внутри контейнера */
+}
+
+.movie-view-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7));
+    z-index: 1; /* Чтобы псевдоэлемент был поверх фонового изображения, но под контентом */
+}
+
+.movie-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box; /* Убедимся, что padding включен в общую ширину */
+}
+
+.slide-content {
+    text-align: left;
+    color: #fff;
+    max-width: 800px; /* Увеличим максимальную ширину */
+    padding: 30px; /* Увеличим внутренние отступы */
+    border-radius: 10px;
+    position: relative; /* Добавлено для корректного наложения текста */
+    z-index: 2; /* Чтобы текст был поверх псевдоэлемента */
+    box-sizing: border-box; /* Убедимся, что padding включен в общую ширину */
+}
+
+.slide-content h2 {
+    font-size: 2.1rem; /* Увеличим размер заголовка */
+    margin-bottom: 20px;
+}
+
+.slide-content p {
+    font-size: 1.3rem; /* Увеличим размер текста */
+    margin-bottom: 20px;
+}
+
+.movie-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Увеличим разрыв между элементами */
+    margin-bottom: 20px;
+}
+
+.rating-container {
+    display: flex;
+    gap: 10px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px; /* Увеличим внутренние отступы */
+    border-radius: 5px;
+    font-size: 1.1rem; /* Увеличим размер текста */
+    color: #fff;
+}
+
+.rating.kinopoisk {
+    background-color: #00a300;
+}
+
+.rating.imdb {
+    background-color: #f5c518;
+    color: #000;
+}
+
+.rating .source {
+    font-weight: bold;
+}
+
+.movie-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Увеличим разрыв между элементами */
+}
+
+.movie-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f0f0f0;
+    font-size: 1.1rem; /* Увеличим размер текста */
+}
+
+.movie-detail i {
+    font-size: 1.5rem; /* Увеличим размер иконки */
+}
+
+.movie-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.watch-button, .add-to-favorites-button {
+    background-color: rgba(255, 255, 255, 0.2); /* Сделаем кнопки почти прозрачными */
+    color: #fff;
+    padding: 15px 30px; /* Увеличим внутренние отступы */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2rem; /* Увеличим размер текста */
+}
+
+.watch-button:hover, .add-to-favorites-button:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Изменим цвет при наведении */
+}
+
+.video-container {
+    max-width: 1200px; /* Увеличим максимальную ширину видео */
+    margin: 40px auto; /* Центрируем видео и добавляем отступ сверху и снизу */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.video-container h1 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Стили для переключателя качества видео */
+.quality-selector {
+    margin-top: 20px; /* Добавим отступ сверху */
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem; /* Увеличим размер шрифта */
+    color: #fff;
+}
+
+.quality-selector label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.quality-selector select {
+    padding: 10px;
+    font-size: 1.2rem; /* Увеличим размер шрифта */
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
+}

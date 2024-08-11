@@ -1,0 +1,73 @@
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 90vw; /* Занимает всю ширину экрана */
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    width: 100%; /* Занимает всю ширину контейнера */
+}
+
+.carousel-item {
+    flex: 0 0 20%; /* Каждая карточка занимает 20% ширины контейнера */
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 180px; /* Фиксированная высота изображений */
+    object-fit: cover; /* Обрезка изображения до нужных пропорций */
+    border-radius: 10px;
+}
+
+.carousel-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 5px;
+    user-select: none;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

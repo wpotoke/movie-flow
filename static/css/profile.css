@@ -1,0 +1,95 @@
+/* profile.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #332530;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+    border-radius: 10px;
+}
+
+.form div {
+    margin-bottom: 15px;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.form input[type="text"], form input[type="email"], form input[type="password"], form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* Стили для ссылки "Выйти" */
+.logout {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #000; /* Черный фон */
+    color: white; /* Белый текст */
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s ease; /* Плавный переход для фона */
+}
+
+/* Эффект при наведении на ссылку "Выйти" */
+.logout:hover {
+    background-color: #333; /* Более светлый черный фон при наведении */
+}
+
+
+.form button:hover {
+    background-color: #3c3c3c;
+}
+
+.a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+
+.errorlist {
+    color: #ff0000; /* Ярко-красный цвет для ошибок */
+    font-size: 16px; /* Меньший размер шрифта для текста ошибок */
+    margin: 5px 0 15px; /* Отступы вокруг списка ошибок */
+    padding: 10px; /* Внутренние отступы для списка ошибок */
+    border: 2px solid #ff0000; /* Граница вокруг списка ошибок */
+    border-radius: 10px; /* Скругление углов границы */
+    background-color: #312736; /* Светло-красный фоновый цвет для подсветки ошибок */
+    list-style-type: none; /* Убираем маркеры списка */
+}
+
+.errorlist li {
+    line-height: 1.5; /* Расстояние между строками в списке ошибок */
+}

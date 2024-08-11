@@ -1,0 +1,146 @@
+/* login.css */
+body {
+    font-family: Arial, sans-serif;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    backdrop-filter: blur(10px); /* Размытие заднего фона */
+    z-index: -1;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 50px;
+    text-decoration: none;
+}
+
+.title a {
+    color: white;
+    text-decoration: none;
+}
+
+.title a:hover {
+    text-decoration: none;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Основной контейнер для кнопок переключения */
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Стили для ссылок внутри toggle-buttons */
+.toggle-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #000000; /* Цвет фона кнопок */
+    color: white; /* Цвет текста */
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s ease; /* Плавный переход для фона */
+}
+
+/* Эффект при наведении на ссылки */
+.toggle-buttons a:hover {
+    background-color: #575658; /* Более темный цвет фона при наведении */
+}
+
+/* Дополнительный стиль для активной кнопки (если нужно) */
+.toggle-buttons a.active {
+    background-color: #575658; /* Цвет активной кнопки */
+}
+
+form {
+    display: none;
+}
+
+form.active {
+    display: block;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"], form input[type="password"], form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-login a {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.social-login img {
+    width: 40px;
+    height: 40px;
+}
+
+.errorlist {
+    color: #ff0000; /* Ярко-красный цвет для ошибок */
+    font-size: 16px; /* Меньший размер шрифта для текста ошибок */
+    margin: 5px 0 15px; /* Отступы вокруг списка ошибок */
+    padding: 10px; /* Внутренние отступы для списка ошибок */
+    border: 2px solid #ff0000; /* Граница вокруг списка ошибок */
+    border-radius: 10px; /* Скругление углов границы */
+    background-color: #312736; /* Светло-красный фоновый цвет для подсветки ошибок */
+    list-style-type: none; /* Убираем маркеры списка */
+}
+
+.errorlist li {
+    line-height: 1.5; /* Расстояние между строками в списке ошибок */
+}

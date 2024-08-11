@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Настройка профиля</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/panel/panel.css' %}">
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<body>
+    {% include "includes/panel.html" %}
+    <h1>Настройка профиля</h1>
+    <form method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            <label for="id_username">Логин:</label>
+            {{ form.username.errors }}
+            <input type="text" id="id_username" name="username" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" required>
+        </div>
+        <div>
+            <label for="id_email">Email:</label>
+            {{ form.email.errors }}
+            <input type="email" id="id_email" name="email" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" required>
+        </div>
+        <div>
+            {{ form.image.errors }}
+            <input type="file" name="image">
+        </div>
+        <button type="submit">Сохранить изменения</button>
+    </form>
+    <h2>Безопасность</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div>
+            <label for="current_password">Текущий пароль:</label>
+            <input type="password" id="id_current_password" name="current_password" required>
+        </div>
+        <div>
+            <label for="new_password">Новый пароль:</label>
+            <input type="password" id="idnew_password" name="new_password" required>
+        </div>
+        <div>
+            <label for="confirm_password">Подтверждение нового пароля:</label>
+            <input type="password" id="id_confirm_password" name="confirm_password" required>
+        </div>
+        <button type="submit">Изменить пароль</button>
+    </form>
+    <a class="logout" href="{% url "user:logout" %}">Выйти</a>
+    {% include "includes/footer.html" %}
+</body>
+{% endblock %}

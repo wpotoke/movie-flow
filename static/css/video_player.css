@@ -1,0 +1,75 @@
+.video-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.video-container .video-js {
+    width: 100% !important;
+    height: 600px !important;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+.video-container .video-js:focus, 
+.video-container .video-js:active {
+    outline: none;
+}
+
+.quality-menu {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.quality-menu .quality-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quality-menu .quality-button:hover {
+    background-color: #555;
+}
+
+.quality-menu .quality-button i {
+    margin-right: 5px;
+}
+
+.quality-menu .quality-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    z-index: 1;
+    min-width: 120px;
+}
+
+.quality-menu .quality-options a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.quality-menu .quality-options a:hover {
+    background-color: #555;
+}
+
+.quality-menu.show .quality-options {
+    display: block;
+}

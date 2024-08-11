@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Вход в аккаунт</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="blur-background"></div>
+    <a href="{% url "index:index" %}">
+        <div class="title">Movie Flow</div>
+    </a>
+    <div class="form-container">
+        <div class="toggle-buttons">
+            <a href="{% url "user:login" %}">Вход</a>
+            <a href="{% url "user:registration" %}">Регистрация</a>
+        </div>
+        <form id="login-form" class="active" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="id_username">Имя пользователя:</label>
+                <input type="text" id="id_username" name="username" required>
+                {% if form.username.errors %}
+                    <ul class="errorlist">{{ form.username.errors }}</ul>
+                {% endif %}
+            </div>
+            <div>
+                <label for="id_password">Пароль:</label>
+                <input type="password" id="id_password" name="password" required>
+                {% if form.password.errors %}
+                <ul class="errorlist">{{ form.password.errors }}</ul>
+                {% endif %}
+            </div>
+            <div>
+                <input type="checkbox" id="id_remember_me" name="remember_me">
+                <label for="id_remember_me">Запомнить меня</label>
+                {% if form.remember_me.errors %}
+                <ul class="errorlist">{{ form.remember_me.errors }}</ul>
+                {% endif %}
+            </div>
+            <button type="submit">Войти</button>
+        </form>
+        <div class="social-login">
+            <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'images/icons8-google-48.png' %}" alt="Google"></a>
+            <a href="{% url 'social:begin' 'vk-oauth2' %}"><img src="{% static 'images/icons8-vk-48.png' %}" alt="Vk"></a>
+            <a href="{% url 'social:begin' 'github' %}"><img src="{% static 'images/icons8-github-50.png' %}" alt="Github"></a>
+        </div>
+    </div>
+</body>
+{% endblock %}

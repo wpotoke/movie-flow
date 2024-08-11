@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Actors Grid</title>
+{% endblock  %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/actors.css" %}"> <!-- Путь к вашему CSS файлу -->
+{% endblock  %}
+
+{% block content %}
+<div class="navigation">
+    <button>All Actors</button>
+    <button>About Us</button>
+    <button>Contact</button>
+    <!-- Добавьте другие кнопки по аналогии -->
+</div>
+<div class="grid-container">
+    {% for actor in actors %}
+        <div class="grid-item">
+            <img src="{{ actor.image.url }}" alt="{{actor.first_name}}">
+            <p><a href="{% url "index:actor_film" actor.slug %}" class="black-link">{{actor}}</a></p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock  %}
+

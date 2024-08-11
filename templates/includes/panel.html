@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="header">
+    <h1><a href="{% url 'index:index' %}" class="header-link">Movie Flow</a></h1>
+    <nav>
+        <a href="{% url "index:movies" %}">Фильмы</a>
+        <a href="{% url "index:serials" %}">Сериалы</a>
+    </nav>
+    <form action="{% url "index:search" %}" method="get" class="search-form">
+        <div class="search-container">
+            <input type="text" name="q" class="search-input" placeholder="Search movie..." required>
+            <button type="submit" class="search-icon-button">
+                <img src="{% static 'images/png/search_icon.png' %}" alt="Search" class="search-icon">
+            </button>
+        </div>
+    </form>
+    <div class="profile-icon">
+        {% if user.is_authenticated %}
+            <a href="{% url 'user:profile' %}">
+                {% if user.image %}
+                    <img src="{{ user.image.url }}" alt="Аватар пользователя">
+                {% else %}
+                    <img src="{% static 'images/profile_icon.jpeg' %}" alt="Profile">
+                {% endif %}
+            </a>
+        {% else %}
+            <a href="{% url 'user:login' %}">
+                <img src="{% static 'images/profile_icon.jpeg' %}" alt="Profile">
+            </a>
+        {% endif %}
+    </div>    
+</div>

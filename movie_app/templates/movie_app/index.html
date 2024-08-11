@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% load static %}
+{% load split_filter %}
+
+{% block title %}
+<title>Movie Flow</title>
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/panel/panel.css' %}">
+<link rel="stylesheet" href="{% static 'css/card_movie.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+{% include "includes/panel.html" %}
+<div class="banner-slider">
+    <div class="slides">
+        {% for movie in slider %}
+            {% if movie.image_back %}
+                <div class="slide" style="background-image: url('{{ movie.image_back.url }}');">
+            {% else %}
+                <div class="slide" style="background-image: url('{{ movie.image.url }}');">
+            {% endif %}
+            <div class="slide-content">
+                <h2>{{ movie.name }}</h2>
+                <p>{{ movie.description }}</p>
+                <div class="movie-info-slider">
+                    <div class="rating-container">
+                        <div class="rating kinopoisk">
+                            <span class="source">Кинопоиск</span> {{ movie.rating }}
+                        </div>
+                        <div class="rating imdb">
+                            <span class="source">IMDb</span> {{ movie.rating_imdb }}
+                        </div>
+                    </div>
+                    <div class="movie-details-container">
+                        <div class="movie-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>{{ movie.time|split:"."|first }}ч {{ movie.time|split:"."|last }}м</span>
+                        </div>
+                        <div class="movie-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>{{ movie.year }}</span>
+                        </div>
+                        <div class="movie-detail">
+                            <i class="fas fa-film"></i>
+                            <span>{{ movie.category_film }}</span>
+                        </div>
+                        <div class="movie-detail">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>{{ movie.age }}+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="navigation">
+        <div class="prev">&#10094;</div>
+        <div class="next">&#10095;</div>
+    </div>
+</div>
+<div class="content">
+    <div class="section">
+        <h2>Новинки</h2>
+        <div class="movie-grid">
+            {% for movie in movies %}
+                {% if movie.category == "NEWRELEASES" %}
+                    <a href="{% url 'index:movie-detail' movie.slug %}">
+                        <div class="movie-card">
+                                {% if movie.image %}
+                                    <img src="{{movie.image.url}}" alt="{{movie.name}}">
+                                {% else %}
+                                    <img src="{% static 'images/not_image.jpeg' %}" alt="...">
+                                {% endif %}
+                            <div class="movie-info">
+                                <h3>{{movie.name}}</h3>
+                                <div class="movie-card-rating-container">
+                                    <div class="movie-card-rating kinopoisk">
+                                        <span class="source">Кинопоиск</span> {{ movie.rating }}
+                                    </div>
+                                    <div class="movie-card-rating imdb">
+                                        <span class="source">IMDb</span> {{ movie.rating_imdb }}
+                                    </div>
+                                </div>
+                                <div class="movie-card-details-container">
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-clock"></i>
+                                        <span>{{ movie.time|split:"."|first }}ч {{ movie.time|split:"."|last }}м</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>{{ movie.year }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-film"></i>
+                                        <span>{{ movie.category_film }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>{{ movie.age }}+</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="section">
+        <h2>Популярные</h2>
+        <div class="movie-grid">
+            {% for movie in movies %}
+                {% if movie.category == "POPULAR" %}
+                    <a href="{% url 'index:movie-detail' movie.slug %}">
+                        <div class="movie-card">
+                                {% if movie.image %}
+                                    <img src="{{movie.image.url}}" alt="{{movie.name}}">
+                                {% else %}
+                                    <img src="{% static 'images/not_image.jpeg' %}" alt="...">
+                                {% endif %}
+                            <div class="movie-info">
+                                <h3>{{movie.name}}</h3>
+                                <div class="movie-card-rating-container">
+                                    <div class="movie-card-rating kinopoisk">
+                                        <span class="source">Кинопоиск</span> {{ movie.rating }}
+                                    </div>
+                                    <div class="movie-card-rating imdb">
+                                        <span class="source">IMDb</span> {{ movie.rating_imdb }}
+                                    </div>
+                                </div>
+                                <div class="movie-card-details-container">
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-clock"></i>
+                                        <span>{{ movie.time|split:"."|first }}ч {{ movie.time|split:"."|last }}м</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>{{ movie.year }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-film"></i>
+                                        <span>{{ movie.category_film }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>{{ movie.age }}+</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="section">
+        <h2>Классика</h2>
+        <div class="movie-grid">
+            {% for movie in movies %}
+                {% if movie.category == "CLASSICS" %}
+                    <a href="{% url 'index:movie-detail' movie.slug %}">
+                        <div class="movie-card">
+                                {% if movie.image %}
+                                    <img src="{{movie.image.url}}" alt="{{movie.name}}">
+                                {% else %}
+                                    <img src="{% static 'images/not_image.jpeg' %}" alt="...">
+                                {% endif %}
+                            <div class="movie-info">
+                                <h3>{{movie.name}}</h3>
+                                <div class="movie-card-rating-container">
+                                    <div class="movie-card-rating kinopoisk">
+                                        <span class="source">Кинопоиск</span> {{ movie.rating }}
+                                    </div>
+                                    <div class="movie-card-rating imdb">
+                                        <span class="source">IMDb</span> {{ movie.rating_imdb }}
+                                    </div>
+                                </div>
+                                <div class="movie-card-details-container">
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-clock"></i>
+                                        <span>{{ movie.time|split:"."|first }}ч {{ movie.time|split:"."|last }}м</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>{{ movie.year }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-film"></i>
+                                        <span>{{ movie.category_film }}</span>
+                                    </div>
+                                    <div class="movie-card-detail">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>{{ movie.age }}+</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% include "includes/footer.html" %}
+<script src="{% static 'js/slider/slider.js' %}"></script>
+<script src="{% static 'js/search/search.js' %}"></script> <!-- Подключение JavaScript файла -->
+{% endblock %}

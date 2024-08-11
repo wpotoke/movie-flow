@@ -1,0 +1,90 @@
+.header {
+    background-color: #231a24;
+    padding: 10px 40px;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    padding: 20px;
+}
+
+.header-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header nav {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    padding: 10px 40px 10px 20px;
+    width: 300px;
+    background: #222;
+    border: 1px solid #d633ff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-icon-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.profile-icon img {
+    width: 70px;
+    height: 70px;
+    background-color: #bf00ff;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover; /* Ensure the image covers the entire area */
+    object-position: center; /* Center the image */
+}

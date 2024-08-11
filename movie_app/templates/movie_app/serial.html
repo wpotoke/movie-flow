@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% load split_filter %}
+
+{% block title %}
+<title>{{ serial.name }} - Movie Flow</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/film.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/panel/panel.css' %}">
+<link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+{% include "includes/panel.html" %}
+<div class="movie-view-container" style="background-image: url('{{ serial.image_back.url }}');">
+    <div class="slide-content">
+        <h2>{{ serial.name }}</h2>
+        <p>{{ serial.description }}</p>
+        <div class="movie-info">
+            <div class="rating-container">
+                <div class="rating kinopoisk">
+                    <span class="source">Кинопоиск</span> {{ serial.rating }}
+                </div>
+                <div class="rating imdb">
+                    <span class="source">IMDb</span> {{ serial.rating_imdb }}
+                </div>
+            </div>
+            <div class="movie-details-container">
+                <div class="movie-detail">
+                    <i class="fas fa-clock"></i>
+                    <span>{{ serial.time|split:"."|first }}ч {{ serial.time|split:"."|last }}м</span>
+                </div>
+                <div class="movie-detail">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>{{ serial.year }}</span>
+                </div>
+                <div class="movie-detail">
+                    <i class="fas fa-film"></i>
+                    <span>{{ serial.category_serial }}</span>
+                </div>
+                <div class="movie-detail">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ serial.age }}+</span>
+                </div>
+                <div class="movie-actions">
+                    <a href="{% url 'video_player:episode_player' serial.slug 1 1 %}" class="watch-button">Смотреть сериал</a>
+                    <a href="#" class="add-to-favorites-button">Добавить в избранное</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Start -->
+        <div class="carousel">
+            <button class="prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    {% for episode in episodes %}
+                        <div class="carousel-item">
+                            <a href="{% url 'video_player:episode_player' serial.slug episode.season_number episode.episode_number %}">
+                                {% if episode.image %}
+                                    <img src="{{ episode.image.url }}" alt="{{ episode.name }}">
+                                {% else %}
+                                    <img src="{% static 'images/not_image.jpeg' %}" alt="No image available">
+                                {% endif %}
+                                <div class="carousel-text">{{ episode.name|truncatechars:10 }} Серия {{ episode.episode_number }}, Сезон {{ episode.season_number }}</div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <button class="next" onclick="moveCarousel(1)">&#10095;</button>
+        </div>
+        <!-- Carousel End -->
+
+    </div>
+</div>
+{% include "includes/footer.html" %}
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static "js/carousel/carousel.js" %}"></script>
+{% endblock %}

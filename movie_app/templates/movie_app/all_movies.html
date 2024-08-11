@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load split_filter %}
+
+{% block title %}
+<title>Movies</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/card_movie.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/panel/panel.css' %}">
+{% endblock  %}
+
+{% block content %}
+{% include "includes/panel.html" %}
+
+<div class="count-movie">
+    <h1>Фильмы {{movies|length}}</h1>
+</div>
+
+<div class="content">
+    <div class="movie-grid">
+        {% for movie in movies %}
+        <a href="{% url 'index:movie-detail' movie.slug %}">
+            <div class="movie-card">
+                    {% if movie.image %}
+                        <img src="{{movie.image.url}}" alt="{{movie.name}}">
+                    {% else %}
+                        <img src="{% static 'images/not_image.jpeg' %}" alt="...">
+                    {% endif %}
+                <div class="movie-info">
+                    <h3>{{movie.name}}</h3>
+                    <div class="movie-card-rating-container">
+                        <div class="movie-card-rating kinopoisk">
+                            <span class="source">Кинопоиск</span> {{ movie.rating }}
+                        </div>
+                        <div class="movie-card-rating imdb">
+                            <span class="source">IMDb</span> {{ movie.rating_imdb }}
+                        </div>
+                    </div>
+                    <div class="movie-card-details-container">
+                        <div class="movie-card-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>{{ movie.time|split:"."|first }}ч {{ movie.time|split:"."|last }}м</span>
+                        </div>
+                        <div class="movie-card-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>{{ movie.year }}</span>
+                        </div>
+                        <div class="movie-card-detail">
+                            <i class="fas fa-film"></i>
+                            <span>{{ movie.category_film }}</span>
+                        </div>
+                        <div class="movie-card-detail">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>{{ movie.age }}+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% include "includes/footer.html" %}
+{% endblock %}

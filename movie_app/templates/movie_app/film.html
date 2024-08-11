@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% load split_filter %}
+
+{% block title %}
+<title>{{ movie.name }} - Movie Flow</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/film.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/panel/panel.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+{% include "includes/panel.html" %}
+<div class="movie-view-container" style="background-image: url('{{ movie.image_back.url }}');">
+    <div class="slide-content">
+        <h2>{{ movie.name }}</h2>
+        <p>{{ movie.description }}</p>
+        <div class="movie-info">
+            <div class="rating-container">
+                <div class="rating kinopoisk">
+                    <span class="source">Кинопоиск</span> {{ movie.rating }}
+                </div>
+                <div class="rating imdb">
+                    <span class="source">IMDb</span> {{ movie.rating_imdb }}
+                </div>
+            </div>
+            <div class="movie-details-container">
+                <div class="movie-detail">
+                    <i class="fas fa-clock"></i>
+                    <span>{{ movie.time|split:"."|first }}ч {{ movie.time|split:"."|last }}м</span>
+                </div>
+                <div class="movie-detail">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>{{ movie.year }}</span>
+                </div>
+                <div class="movie-detail">
+                    <i class="fas fa-film"></i>
+                    <span>{{ movie.category_film }}</span>
+                </div>
+                <div class="movie-detail">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ movie.age }}+</span>
+                </div>
+                <div class="movie-actions">
+                    <a href="{% url 'video_player:film_player' movie.slug %}" class="watch-button">Смотреть фильм</a>
+                    <a href="#" class="add-to-favorites-button">Добавить в избранное</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "includes/footer.html" %}
+{% endblock %}

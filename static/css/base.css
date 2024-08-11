@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #332530;
+    color: #fff;
+}
+
+.header {
+    padding: 40px;
+}
+
+.count-movie {
+    background-color: #fafafa00;
+    padding: 0px 65px;
+}
+
+.slide-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.936);
+    max-width: 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.banner-slider {
+    position: relative;
+    width: 92%;
+    height: 500px;
+    overflow: hidden;
+    margin: 20px auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    border: 1px solid rgb(143, 33, 162);
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.slide-content h2 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.slide-content p {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.rating-container {
+    display: flex;
+    gap: 10px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.rating.kinopoisk {
+    background-color: #00a300;
+}
+
+.rating.imdb {
+    background-color: #f5c518;
+    color: #000;
+}
+
+.rating .source {
+    font-weight: bold;
+}
+
+.movie-details {
+    margin-right: 10px;
+    color: #ccc;
+}
+
+.navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.prev, .next {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.content {
+    padding: 60px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 30px;
+}
+
+.movie-card {
+    position: relative;
+    background-color: #222022;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    width: 90%;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Выровняем контент по центру */
+    align-items: flex-start; /* Выровняем контент по центру */
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-sizing: border-box;
+}
+
+.movie-card:hover .movie-info {
+    opacity: 1;
+}
+
+.movie-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.movie-info-slider {
+    padding: 10px;
+}
+
+.movie-info-slider h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.movie-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating-container {
+    display: flex;
+    gap: 10px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.rating .source {
+    font-weight: bold;
+}
+
+.movie-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.movie-detail {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ffffffe6;
+}
+
+.movie-detail i {
+    font-size: 1rem;
+}
+
+.movie-detail span {
+    font-size: 0.9rem;
+}
+
+/* Стили для успешного поиска */
+.search-results h1 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-results li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.search-results li a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.search-results li a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для ошибки */
+.search-error h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.search-error p {
+    font-size: 1.3rem;
+    color: #ffffff;
+}
