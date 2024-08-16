@@ -16,7 +16,7 @@
   - [django-rest-framework](https://www.django-rest-framework.org/)
   - [django](https://www.djangoproject.com/)
   - [video-js](https://videojs.com/)
-  - [python](https://python.com/)
+  - [python](https://www.python.org/)
   - [css-html](https://developer.mozilla.org/en-US/)
 
 ## Использование
