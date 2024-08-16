@@ -11,13 +11,13 @@
 - [To do]
 - [Команда проекта]
   
-  
-##Технологии
+
+## Технологии
   - [django-rest-framework](https://www.django-rest-framework.org/)
   - [django](https://www.djangoproject.com/)
   - [video-js](https://videojs.com/)
 
-##Использование
+## Использование
   Заходите [movie-flow](https://movie-flow.ru/) и смотрите фильмы и сериалы.
 
 ## Команда проекта
