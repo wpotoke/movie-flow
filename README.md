@@ -13,12 +13,12 @@
   
   
 ##Технологии
-- [django-rest-framework](https://www.django-rest-framework.org/)
-- [django](https://www.djangoproject.com/)
-- [video-js](https://videojs.com/)
+  - [django-rest-framework](https://www.django-rest-framework.org/)
+  - [django](https://www.djangoproject.com/)
+  - [video-js](https://videojs.com/)
 
 ##Использование
-Заходите [movie-flow](https://movie-flow.ru/) и смотрите фильмы и сериалы.
+  Заходите [movie-flow](https://movie-flow.ru/) и смотрите фильмы и сериалы.
 
 ## Команда проекта
-- [Морозов Данила](tg://amigos_mixtapes) — Back-End Engineer
+  - [Морозов Данила](tg://amigos_mixtapes) — Back-End Engineer
