@@ -1,1 +1,30 @@
-[{"model": "movie_app.actor", "pk": 1, "fields": {"first_name": "Брэд", "last_name": "Пит", "gender": "M", "image": "static/images/not_image.jpeg", "slug": "bred-pit", "age": 59, "country": "Лос-Анджелес, Калифорния, США", "description": ""}}, {"model": "movie_app.actor", "pk": 2, "fields": {"first_name": "Тоби", "last_name": "Магваер", "gender": "M", "image": "static/images/not_image.jpeg", "slug": "tobi-magvaer", "age": 60, "country": null, "description": ""}}]
+[
+    {
+        "model": "movie_app.actor",
+        "pk": 1,
+        "fields": {
+            "first_name": "Брэд",
+            "last_name": "Пит",
+            "gender": "M",
+            "image": "static/images/not_image.jpeg",
+            "slug": "bred-pit",
+            "age": 59,
+            "country": "Лос-Анджелес, Калифорния, США",
+            "description": ""
+        }
+    },
+    {
+        "model": "movie_app.actor",
+        "pk": 2,
+        "fields": {
+            "first_name": "Тоби",
+            "last_name": "Магваер",
+            "gender": "M",
+            "image": "static/images/not_image.jpeg",
+            "slug": "tobi-magvaer",
+            "age": 60,
+            "country": null,
+            "description": ""
+        }
+    }
+]
