@@ -21,4 +21,4 @@
   Заходите [movie-flow](https://movie-flow.ru/) и смотрите фильмы и сериалы.
 
 ## Команда проекта
-  - [Морозов Данила](tg://@amigos_mixtapes) — Back-End Engineer
+  - [Морозов Данила](https://t.me/amigos_mixtapes) — Back-End Engineer
