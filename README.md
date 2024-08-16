@@ -16,6 +16,8 @@
   - [django-rest-framework](https://www.django-rest-framework.org/)
   - [django](https://www.djangoproject.com/)
   - [video-js](https://videojs.com/)
+  - [python](https://python.com/)
+  - [css-html](https://developer.mozilla.org/en-US/)
 
 ## Использование
   Заходите [movie-flow](https://movie-flow.ru/) и смотрите фильмы и сериалы.
